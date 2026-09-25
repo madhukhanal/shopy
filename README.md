@@ -2,11 +2,12 @@
 
 React mini e-commerce product catalog and cart project.
 
-## Commit 6
-- Cart persistence with `localStorage`
-- `useEffect` for saving cart changes
-- `useEffect` for restoring the cart when the app starts
-- Cart remains available after refreshing the page or reopening the app
+## Commit 7
+- Sort products by name and price
+- Keep sorting combined with search and category filters
+- Expanded checkout summary
+- Subtotal and item count in cart summary
+- Clearer checkout section before final responsive cleanup
 
 ## Setup
 ```bash

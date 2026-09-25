@@ -8,11 +8,7 @@ const CART_STORAGE_KEY = "shopy-cart";
 function App() {
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem(CART_STORAGE_KEY);
-
-    if (!savedCart) {
-      return [];
-    }
-
+    if (!savedCart) return [];
     try {
       return JSON.parse(savedCart);
     } catch {
@@ -27,15 +23,11 @@ function App() {
   function addToCart(product) {
     setCartItems((currentItems) => {
       const existingItem = currentItems.find((item) => item.id === product.id);
-
       if (existingItem) {
         return currentItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item,
         );
       }
-
       return [...currentItems, { ...product, quantity: 1 }];
     });
   }
@@ -45,7 +37,6 @@ function App() {
       removeFromCart(productId);
       return;
     }
-
     setCartItems((currentItems) =>
       currentItems.map((item) =>
         item.id === productId ? { ...item, quantity } : item,
@@ -65,11 +56,7 @@ function App() {
   );
 
   const cartTotal = useMemo(
-    () =>
-      cartItems.reduce(
-        (total, item) => total + item.price * item.quantity,
-        0,
-      ),
+    () => cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
     [cartItems],
   );
 
@@ -79,7 +66,6 @@ function App() {
         <header className="site-header">
           <div className="container header-content">
             <Link className="brand" to="/">Shopy</Link>
-
             <nav className="nav-links" aria-label="Main navigation">
               <Link to="/">Home</Link>
               <Link className="cart-link" to="/cart">

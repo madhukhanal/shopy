@@ -8,13 +8,10 @@ function ProductCard({ product, onAddToCart }) {
         <p className="product-description">{product.description}</p>
         <div className="product-card-footer">
           <strong>${product.price.toFixed(2)}</strong>
-          <button type="button" onClick={() => onAddToCart(product)}>
-            Add to Cart
-          </button>
+          <button type="button" onClick={() => onAddToCart(product)}>Add to Cart</button>
         </div>
       </div>
     </article>
   );
 }
-
 export default ProductCard;

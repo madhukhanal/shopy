@@ -1,10 +1,12 @@
 function Cart({ cartItems, cartTotal, onUpdateQuantity, onRemove }) {
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <section className="page-section">
       <div className="container">
         <div className="section-heading">
           <div><p className="eyebrow">Shopping bag</p><h1>Your Cart</h1></div>
-          <p>{cartItems.length} product type{cartItems.length === 1 ? "" : "s"}</p>
+          <p>{itemCount} item{itemCount === 1 ? "" : "s"}</p>
         </div>
 
         {cartItems.length === 0 ? (
@@ -37,10 +39,14 @@ function Cart({ cartItems, cartTotal, onUpdateQuantity, onRemove }) {
             </div>
 
             <aside className="cart-summary">
-              <h2>Cart Summary</h2>
-              <div><span>Items</span><strong>{cartItems.reduce((total, item) => total + item.quantity, 0)}</strong></div>
-              <div className="cart-total"><span>Total</span><strong>${cartTotal.toFixed(2)}</strong></div>
-              <button className="checkout-button" type="button">Checkout</button>
+              <p className="eyebrow">Order review</p>
+              <h2>Checkout Summary</h2>
+              <div><span>Products</span><strong>{cartItems.length}</strong></div>
+              <div><span>Total items</span><strong>{itemCount}</strong></div>
+              <div><span>Subtotal</span><strong>${cartTotal.toFixed(2)}</strong></div>
+              <div className="cart-total"><span>Order Total</span><strong>${cartTotal.toFixed(2)}</strong></div>
+              <button className="checkout-button" type="button">Proceed to Checkout</button>
+              <p className="checkout-note">Checkout is a demo feature for this project.</p>
             </aside>
           </div>
         )}
