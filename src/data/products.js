@@ -1,0 +1,68 @@
+const products = [
+  {
+    id: 1,
+    name: "Classic Cotton T-Shirt",
+    category: "Clothing",
+    price: 24.99,
+    description: "A comfortable everyday cotton t-shirt.",
+    image: "https://placehold.co/600x450?text=Cotton+T-Shirt",
+  },
+  {
+    id: 2,
+    name: "Urban Backpack",
+    category: "Accessories",
+    price: 49.99,
+    description: "A practical backpack for everyday travel.",
+    image: "https://placehold.co/600x450?text=Backpack",
+  },
+  {
+    id: 3,
+    name: "Wireless Headphones",
+    category: "Electronics",
+    price: 79.99,
+    description: "Comfortable wireless headphones for music and calls.",
+    image: "https://placehold.co/600x450?text=Headphones",
+  },
+  {
+    id: 4,
+    name: "Minimal Desk Lamp",
+    category: "Home",
+    price: 34.99,
+    description: "A simple desk lamp for a clean workspace.",
+    image: "https://placehold.co/600x450?text=Desk+Lamp",
+  },
+  {
+    id: 5,
+    name: "Everyday Sneakers",
+    category: "Footwear",
+    price: 64.99,
+    description: "Lightweight sneakers designed for daily wear.",
+    image: "https://placehold.co/600x450?text=Sneakers",
+  },
+  {
+    id: 6,
+    name: "Ceramic Coffee Mug",
+    category: "Home",
+    price: 14.99,
+    description: "A durable ceramic mug for your favorite drink.",
+    image: "https://placehold.co/600x450?text=Coffee+Mug",
+  },
+  {
+    id: 7,
+    name: "Smart Watch",
+    category: "Electronics",
+    price: 119.99,
+    description: "A modern smartwatch for everyday activities.",
+    image: "https://placehold.co/600x450?text=Smart+Watch",
+  },
+  {
+    id: 8,
+    name: "Canvas Tote Bag",
+    category: "Accessories",
+    price: 19.99,
+    description: "A reusable canvas tote for everyday essentials.",
+    image: "https://placehold.co/600x450?text=Tote+Bag",
+  },
+];
+
+export default products;

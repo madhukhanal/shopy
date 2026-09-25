@@ -1,18 +1,35 @@
+import products from "../data/products";
+import ProductGrid from "../components/ProductGrid";
+
 function Home() {
   return (
-    <section className="hero container">
-      <p className="eyebrow">Welcome to Shopy</p>
-      <h1>Simple shopping, made better.</h1>
-      <p className="hero-text">
-        Discover useful products through a clean and simple shopping experience.
-      </p>
-      <a className="primary-button" href="#products">Explore Products</a>
+    <>
+      <section className="hero">
+        <div className="container">
+          <p className="eyebrow">Simple shopping, made easy</p>
+          <h1>Welcome to Shopy</h1>
+          <p>
+            Explore our collection of everyday products and find something
+            you&apos;ll love.
+          </p>
+        </div>
+      </section>
 
-      <div className="section-placeholder" id="products">
-        <p>Products are coming next.</p>
-      </div>
-    </section>
-  )
+      <section className="products-section">
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Our collection</p>
+              <h2>Featured Products</h2>
+            </div>
+            <p>{products.length} products</p>
+          </div>
+
+          <ProductGrid products={products} />
+        </div>
+      </section>
+    </>
+  );
 }
 
-export default Home
+export default Home;
