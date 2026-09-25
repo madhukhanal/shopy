@@ -1,10 +1,28 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 
+const CART_STORAGE_KEY = "shopy-cart";
+
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+
+    if (!savedCart) {
+      return [];
+    }
+
+    try {
+      return JSON.parse(savedCart);
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
+  }, [cartItems]);
 
   function addToCart(product) {
     setCartItems((currentItems) => {
@@ -73,10 +91,7 @@ function App() {
 
         <main>
           <Routes>
-            <Route
-              path="/"
-              element={<Home onAddToCart={addToCart} />}
-            />
+            <Route path="/" element={<Home onAddToCart={addToCart} />} />
             <Route
               path="/cart"
               element={
