@@ -1,39 +1,35 @@
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+import Cart from "./pages/Cart"
+
 function App() {
   return (
-    <div className="app">
-      <header className="header">
-        <div className="container">
-          <a href="/" className="logo">
-            Shopy
-          </a>
+    <BrowserRouter>
+      <div className="app">
+        <header className="header">
+          <div className="container header-content">
+            <Link to="/" className="logo">Shopy</Link>
+            <nav className="nav" aria-label="Main navigation">
+              <Link to="/">Home</Link>
+              <Link to="/cart">Cart</Link>
+            </nav>
+          </div>
+        </header>
 
-          <nav className="nav">
-            <a href="/">Home</a>
-            <a href="/cart">Cart</a>
-          </nav>
-        </div>
-      </header>
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </main>
 
-      <main className="main">
-        <section className="hero container">
-          <p className="eyebrow">Welcome to Shopy</p>
-          <h1>Simple shopping, made better.</h1>
-          <p className="hero-text">
-            A modern mini e-commerce experience built with React.
-          </p>
-
-          <button className="primary-button" type="button">
-            Explore Products
-          </button>
-        </section>
-      </main>
-
-      <footer className="footer">
-        <div className="container">
-          <p>© 2026 Shopy. Built with React.</p>
-        </div>
-      </footer>
-    </div>
+        <footer className="footer">
+          <div className="container">
+            <p>© 2026 Shopy. Built with React.</p>
+          </div>
+        </footer>
+      </div>
+    </BrowserRouter>
   )
 }
 

@@ -1,16 +1,66 @@
-# React + Vite
+# Shopy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Shopy is a modern mini e-commerce product catalog and shopping cart application built with React.
 
-Currently, two official plugins are available:
+## Current Progress
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Commit 2 establishes the project foundation and basic page routing.
 
-## React Compiler
+### Current Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React functional components
+- Responsive base layout
+- Home page
+- Cart page
+- React Router navigation
+- ESLint configuration
 
-## Expanding the ESLint configuration
+### Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- JavaScript
+- React Router
+- CSS
+- ESLint
+
+## Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```text
+shopy/
+├── README.md
+├── package.json
+├── index.html
+├── vite.config.js
+├── eslint.config.js
+├── .gitignore
+└── src/
+    ├── main.jsx
+    ├── App.jsx
+    ├── index.css
+    └── pages/
+        ├── Home.jsx
+        └── Cart.jsx
+```
+
+More e-commerce features will be added in later commits.
