@@ -1,5 +1,24 @@
+import { useState } from "react";
+
 function Cart({ cartItems, cartTotal, onUpdateQuantity, onRemove }) {
+  const [customer, setCustomer] = useState({ name: "", email: "", address: "" });
+  const [checkoutMessage, setCheckoutMessage] = useState("");
+
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setCustomer((currentCustomer) => ({ ...currentCustomer, [name]: value }));
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (!customer.name || !customer.email || !customer.address) {
+      setCheckoutMessage("Please complete all checkout fields.");
+      return;
+    }
+    setCheckoutMessage(`Thanks, ${customer.name}! Your demo order has been prepared.`);
+  }
 
   return (
     <section className="page-section">
@@ -25,9 +44,9 @@ function Cart({ cartItems, cartTotal, onUpdateQuantity, onRemove }) {
                     <h3>{item.name}</h3>
                     <p>${item.price.toFixed(2)} each</p>
                     <div className="quantity-controls">
-                      <button type="button" onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}>-</button>
+                      <button type="button" aria-label={`Decrease ${item.name} quantity`} onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}>-</button>
                       <span>{item.quantity}</span>
-                      <button type="button" onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}>+</button>
+                      <button type="button" aria-label={`Increase ${item.name} quantity`} onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}>+</button>
                     </div>
                   </div>
                   <div className="cart-item-actions">
@@ -45,8 +64,16 @@ function Cart({ cartItems, cartTotal, onUpdateQuantity, onRemove }) {
               <div><span>Total items</span><strong>{itemCount}</strong></div>
               <div><span>Subtotal</span><strong>${cartTotal.toFixed(2)}</strong></div>
               <div className="cart-total"><span>Order Total</span><strong>${cartTotal.toFixed(2)}</strong></div>
-              <button className="checkout-button" type="button">Proceed to Checkout</button>
-              <p className="checkout-note">Checkout is a demo feature for this project.</p>
+
+              <form className="checkout-form" onSubmit={handleSubmit}>
+                <h3>Customer details</h3>
+                <label><span>Name</span><input name="name" value={customer.name} onChange={handleChange} placeholder="Your name" required /></label>
+                <label><span>Email</span><input name="email" type="email" value={customer.email} onChange={handleChange} placeholder="you@example.com" required /></label>
+                <label><span>Address</span><textarea name="address" value={customer.address} onChange={handleChange} placeholder="Delivery address" rows="3" required /></label>
+                <button className="checkout-button" type="submit">Place Demo Order</button>
+              </form>
+
+              {checkoutMessage && <p className="checkout-message" role="status">{checkoutMessage}</p>}
             </aside>
           </div>
         )}

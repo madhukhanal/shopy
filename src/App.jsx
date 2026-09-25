@@ -65,7 +65,7 @@ function App() {
       <div className="app">
         <header className="site-header">
           <div className="container header-content">
-            <Link className="brand" to="/">Shopy</Link>
+            <Link className="brand" to="/" aria-label="Shopy home">Shopy</Link>
             <nav className="nav-links" aria-label="Main navigation">
               <Link to="/">Home</Link>
               <Link className="cart-link" to="/cart">

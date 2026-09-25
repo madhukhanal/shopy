@@ -50,14 +50,14 @@ function Home({ onAddToCart }) {
         </div>
       </section>
 
-      <section className="products-section">
+      <section className="products-section" aria-labelledby="products-heading">
         <div className="container">
           <div className="section-heading">
             <div>
               <p className="eyebrow">Our collection</p>
-              <h2>Products</h2>
+              <h2 id="products-heading">Products</h2>
             </div>
-            <p>Showing {filteredProducts.length} of {products.length}</p>
+            <p aria-live="polite">Showing {filteredProducts.length} of {products.length}</p>
           </div>
 
           <div className="filters">
