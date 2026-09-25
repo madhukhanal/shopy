@@ -16,7 +16,11 @@ Shopy is a React single-page mini e-commerce application built for a React cours
 - Checkout summary
 - Controlled checkout form with validation
 - Conditional checkout success message
-- React Router with Home and Cart views
+- React Router with catalog, product details, cart, orders, and order confirmation views
+- Product detail view with live stock and add-to-cart flow
+- Demo order history and order-status timeline
+- Inventory updates after a successful order
+- Free-shipping progress indicator
 - Responsive layout for desktop, tablet, and mobile
 
 ## Technical Requirements Covered
@@ -97,27 +101,38 @@ Before submission, verify:
 - [ ] Cart items can be removed
 - [ ] Cart survives a browser refresh
 - [ ] Checkout form validates required fields
-- [ ] Demo checkout confirmation appears
-- [ ] Home and Cart routes work
+- [ ] Order confirmation appears and the cart clears
+- [ ] Order history shows the placed order
+- [ ] Inventory decreases after purchase
+- [ ] Product detail pages open correctly
+- [ ] Home, product, Cart, Orders, and confirmation routes work
 - [ ] Layout works on mobile and desktop
 - [ ] Browser console has no errors or warnings
 
 ## Screenshots
 
-Add project screenshots here before final submission, for example:
+Add 2–3 screenshots of the running application before final submission. Suggested views:
 
 1. Home/product catalog
 2. Search, category, and sort controls
 3. Cart and checkout summary
-4. Checkout form/confirmation
+4. Product details or checkout confirmation
 
 ## Limitations
 
 - Products come from local mock data.
-- Product images use placeholder image URLs.
+- Product images use free Unsplash photography loaded from stable image CDN URLs.
 - Checkout does not connect to a payment provider or backend.
 - Cart data is stored only in the browser's local storage.
 
 ## Academic Note
 
 This project is intended to demonstrate understanding of React fundamentals, component reuse, state management, routing, forms, and responsive UI.
+
+## UI/UX polish
+
+The final UI pass focuses on a production-style e-commerce presentation while preserving the existing React functionality. It adds a stronger visual hierarchy, responsive layouts, product-card micro-interactions, animated page transitions, polished cart/checkout states, and real product photography from Unsplash. Product image URLs are kept in the existing local mock-data structure so the catalog remains easy to understand and edit.
+
+### Image sources
+
+Product photography is sourced from free Unsplash images and used through their image CDN. The project does not use white placeholder PNGs.
